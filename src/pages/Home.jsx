@@ -1,11 +1,14 @@
 import { useEffect, useState } from "react";
 import { getProducts } from "../services/products";
 import { Link } from "react-router-dom";
-import heroImage from "../assets/images/hero-img.jpg";
+import { useDispatch } from "react-redux";
+import { addItemToCart } from "../redux/slices/sliceCart";
 import Card from "../components/Card";
+import heroImage from "../assets/images/hero-img.jpg";
 
 const Home = () => {
   const [products, setProducts] = useState([]);
+  const dispatch = useDispatch();
 
   useEffect(() => {
     getProducts((data) => {
@@ -13,10 +16,20 @@ const Home = () => {
     }, 6);
   }, []);
 
+  const handleAddToCart = (product) => {
+    dispatch(
+      addItemToCart({
+        id: product.id,
+        title: product.title,
+        qty: 1,
+      })
+    );
+  };
+
   return (
     <div className="w-full">
       {/* Hero Section */}
-      <section className="bg-primary pt-24 py-16 min-h-screen">
+      <section className="bg-primary pt-24 py-16">
         <div className="container px-8 mx-auto grid md:grid-cols-2 gap-8 items-center">
           {/* Left */}
           <div className="text-center md:text-left">
@@ -44,7 +57,7 @@ const Home = () => {
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {products.map((product) => (
-              <Card key={product.id} data={product} />
+              <Card key={product.id} data={product} onClick={() => {}} />
             ))}
           </div>
         </div>

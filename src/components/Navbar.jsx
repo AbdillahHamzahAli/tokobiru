@@ -29,9 +29,11 @@ const Navbar = () => {
         <div className="flex justify-end items-center">
           {/* Desktop Shopping Cart */}
           <div className="hidden md:block">
-            <button className="text-gray-700 hover:text-blue-500">
-              <img src={shoppingCart} alt="shopping-cart" className="w-6 h-6" />
-            </button>
+            <NavLink to={"/cart"}>
+              <button className="text-gray-700 hover:text-blue-500">
+                <img src={shoppingCart} alt="shopping-cart" className="w-6 h-6" />
+              </button>
+            </NavLink>
           </div>
 
           {/* Mobile Menu Button */}
@@ -55,10 +57,12 @@ const Navbar = () => {
           <NavLink to={"/contact"} onClick={() => setIsOpen(!isOpen)} className="block px-4 py-2 text-white hover:bg-gray-100">
             Contact
           </NavLink>
-          <button className="flex w-full text-left px-4 py-2 text-white hover:bg-gray-100 space-x-2">
-            <img src={shoppingCart} alt="menu" />
-            <p>Cart</p>
-          </button>
+          <NavLink to={"/cart"}>
+            <button className="flex w-full text-left px-4 py-2 text-white hover:bg-gray-100 space-x-2">
+              <img src={shoppingCart} alt="menu" />
+              <p>Cart</p>
+            </button>
+          </NavLink>
         </div>
       )}
     </nav>
