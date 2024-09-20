@@ -20,8 +20,8 @@ const Navbar = () => {
           <NavLink to={"/product"} className="text-white  hover:scale-110 uppercase">
             Product
           </NavLink>
-          <NavLink to={"/product"} className="text-white  hover:scale-110 uppercase">
-            About
+          <NavLink to={"/contact"} className="text-white  hover:scale-110 uppercase">
+            Contact
           </NavLink>
         </div>
 
@@ -52,8 +52,8 @@ const Navbar = () => {
           <NavLink to={"/product"} onClick={() => setIsOpen(!isOpen)} className="block px-4 py-2 text-white hover:bg-gray-100">
             Product
           </NavLink>
-          <NavLink onClick={() => setIsOpen(!isOpen)} className="block px-4 py-2 text-white hover:bg-gray-100">
-            About
+          <NavLink to={"/contact"} onClick={() => setIsOpen(!isOpen)} className="block px-4 py-2 text-white hover:bg-gray-100">
+            Contact
           </NavLink>
           <button className="flex w-full text-left px-4 py-2 text-white hover:bg-gray-100 space-x-2">
             <img src={shoppingCart} alt="menu" />
